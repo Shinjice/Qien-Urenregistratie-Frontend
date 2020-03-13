@@ -2,18 +2,25 @@
 <html lang="en"> 
 <title>Qien urenapplicatie</title>  
     <head>
+        <script src="resources//js/app.js"></script>
             <ul class="main-nav">
                 <li><a href="#">WERKNEMER A/B/C</a></li>
                 <li><a href="#declaratie">Urendeclaratie</a></li>
                 <li><a href="#notificaties">Notificaties</a></li>
                 <li><a href="#pnotitie">Persoonlijke notitie</a></li>
+                <li> <a class="adminlink" href="admindefault.html">ADMIN</a></li>
             </ul>
     </head>
     <body>
           
         <div class="middle">
             <div class="add">
-                <div class="add__day">                    
+                <div class="add__day">
+                    
+                    <select  class='add__persType'>
+                        <option value="werknemer1" selected>werknemer1</option>
+                        <option value="werknemer2">werknemer2</option>
+                    </select>
                     <input type="datum" class="add__datum" placeholder="Datum toevoegen">
                     <input type="number" class="add__opdracht" placeholder="Opdracht">
                     <input type="number" class="add__overwerk" placeholder="Overwerk">
@@ -22,7 +29,7 @@
                     <input type="number" class="add__training" placeholder="Training">
                     <input type="number" class="add__overig" placeholder="Overig">
                     <input type="text" class="add__notitie" placeholder="Notitieblad">
-                    <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
+                    <button class="add__btn" id="accepteerknop"><i class="ion-ios-checkmark-outline"></i></button>
                 </div>
             </div>
             
