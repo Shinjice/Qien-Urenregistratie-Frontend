@@ -1,5 +1,41 @@
+// WERKNEMER CONTROLLER
 
+function werknemerNaw(obj) {
+//    this.werknemerfunctie = obj.werknemerfunctie;
+//    this.werknemertitel = obj.werknemertitel;
+    this.vnaam = obj.vnaam;
+    this.anaam = obj.anaam;
+//    this.geboortedatum = obj.geboortedatum;
+//    this.email = obj.email;
+//    this.telefoonnr = obj.telefoonnr;   
+//}
+    //verzenden d.m.v. enter
+    document.addEventListener('keypress', function() {
+          
+            if (event.keyCode === 13 || event.which === 13){
+                
+//    var werknemerfunctie = document.getElementById('werknemerfunctie').value;
+//    var werknemertitel = document.getElementById('werknemertitel').value;
+    var vnaam = document.getElementById('vnaam').value;
+    var anaam = document.getElementById('anaam').value;
+//    var geboortedatum = document.getElementById('geboortedatum').value;
+//    var email = document.getElementById('email').value;
+//    var telefoonnr = document.getElementById('telefoonnr').value;
+    var wndata = new werknemerNaw({
+//        werknemerfunctie: werknemerfunctie,
+//        werknemertitel: werknemertitel,
+        vnaam: vnaam,
+        anaam: anaam,
+//        geboortedatum: geboortedatum,
+//        email: email,
+//        telefoonnr: telefoonnr
+    });
+        
+    }
+    
 
+  console.log(JSON.stringify(wndata));
+});
 
 
 
@@ -8,42 +44,38 @@
 // BUDGET CONTROLLER
 var budgetController = (function() {
             
-    var Dag = function(id, datum, opdracht, overwerk, verlof, ziek, training, overig, notitieblad) {
-        //this.type = type;
+    var Werkdag = function(id, datum, waarde) {
         this.id = id;
         this.datum = datum;
-        this.opdracht = opdracht;
-        this.overwerk = overwerk;
-        this.verlof = verlof;
-        this.ziek = ziek;
-        this.training = training;
-        this.overig = overig;
-        this.notitieblad = notitieblad;
-    };        
-
+        this.waarde = waarde;        
+    };
+        
+        
     var data = {
-        allItems: {
-            dag: [] 
+        datumData: {
+            werknemer1: [],
+            werknemer2: []
+            
+        },
+        totals: {
+            datumTot: 0,
+            werkTot: 0
         }
     };
-    
-    
+        
     return {
-        invoerDag: function(datum, opdracht, overwerk, verlof, ziek, training, overig, notitieblad){
-            var newDag, ID, type;
+        addItem: function(persNr, taak, uren){
+            var newItem, ID;
             
-            ID = 0;
-            type = 'dag';                
-                
-            
-            newDag = new Dag(ID, type, datum, opdracht, overwerk, verlof, ziek, training, overig, notitieblad);
-            
+            // Create new item based on 'werknemer1' or 'werknemer2' persNr
+            newItem = new Werkdag(ID, taak, uren);
+          
             
             // Push it into our data structure
-            data.allItems[type].push(newDag);
+            data.datumData[werknemer1].push(newItem)
             
             // Return the new element
-            return newDag
+            return newItem;
         },
         
         // Data Array test
@@ -63,27 +95,23 @@ var budgetController = (function() {
 var UIController = (function() {
     
     var DOMstrings = {
-        inputDatum: '.add__type',
-        inputOpdracht: '.add__opdracht',
-        inputOverwerk: '.add__overwerk',
-        inputVerlof: '.add__verlof',
-        inputZiek: '.add__ziek',
-        inputTraining: '.add__training',
-        inputOverig: '.add__overig',
-        inputNotitieblad: 'add_notitie'
+        inputPersNr: 'add__persType',
+        inputDatum: '.add__datumdag',
+        inputWaarde: '.add__value',
+        inputBtn: '.add__btn'
     };
     
     return {
         getInput: function() {            
-            return{          
-                datum: document.querySelector(DOMstrings.inputDatum).value,
-                opdracht: document.querySelector(DOMstrings.inputValue).value,
-                overwerk: document.querySelector(DOMstrings.inputOverwerk).value,
-                verlof: document.querySelector(DOMstrings.inputVerlof).value,
-                ziek: document.querySelector(DOMstrings.inputZiek).value,
-                training: document.querySelector(DOMstrings.inputTraining).value,
-                verklaringOverig: document.querySelector(DOMstrings.inputOverig).value
-            };                     
+            return{      
+                persNr: document.getElementById(DOMstrings.inputPersNr).value,
+                datum: document.getElementById(DOMstrings.inputDatum).value,
+                waarde: document.getElementById(DOMstrings.inputWaarde).value
+                
+         //       persNr: document.(DOMstrings.inputPersNr).value, // werknemer1 of werknemer2
+         //       datum: document.querySelector(DOMstrings.inputDatum).value,
+         //       waarde: document.querySelector(DOMstrings.inputWaarde).value
+            };                      
         },
         
         getDOMstrings: function(){  //DOM public to other modules
@@ -99,28 +127,25 @@ var controller = (function(budgetCtrl, UICtrl) {
     
     var setupEventListeners = function () {    
         var DOM = UICtrl.getDOMstrings(); //DOM will be reference in this module
-        
-        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlInvoerDag);
-    
+                  
         document.addEventListener('keypress', function(event) {
           
             if (event.keyCode === 13 || event.which === 13){
-            ctrlInvoerDag();
+            ctrlAddItem();
             }
-        });
+        });    
     };
         
-    var ctrlInvoerDag = function (){
+    var ctrlAddItem = function (){
         var input, newItem;
         
-         // 1. Get the field input data
+      //  1. Get the field input data
         input = UICtrl.getInput();
         console.log(input)
         
-        // 2. Toevoegen van de dag aan de datum controller
+      //  2. Add the item to the budget controller
+        newItem = budgetCtrl.addItem(input.persNr, input.datum, input.waarde);        
         
-        newDag = budgetCtrl.invoerDag(input.datum, input.opdracht, input.overwerk, input.verlof, input.ziek, input.training, input.overig, input.notitie);
-       
     
     }
  

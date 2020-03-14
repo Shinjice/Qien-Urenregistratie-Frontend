@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"> 
+ 
+<title>Qien urenapplicatie</title>  
+    <head>
+        
+        
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        
+    ADMIN MODUS
+    </head>
+    
+    <body>    
+        <h4 id'titel'>TOEVOEGEN WERKNEMER</h4 >
+        <table id='invulveldwerknemers'>
+            <tr id='th__werknemer'>
+<!--
+                <th>functie</th>
+                <th>titel</th>
+-->
+                <th>voornaam</th>
+                <th>achternaam</th>
+<!--
+                <th>geboortedatum</th>
+                <th>e-mail</th>
+                <th>telefoonnummer</th>
+                <th>verzenden</th>
+-->
+<!--
+            </tr>
+            <tr class='tr__selectblad'>
+                <td><select  class='werknemerfunctie'>
+                    <option value="werknemer1">trainee</option>
+                    <option value="werknemer2">manager</option>
+                    </select></td>
+                <td><select  class='werknemertitel'>
+                <option value="meneer"  selected>meneer</option>
+                <option value="mevrouw">mevrouw</option>
+                <option value="onbekend">onbekend</option>
+                    </select></td>
+-->
+                <td><input type="value" class="vnaam" placeholder="voornaam"></td>
+                <td><input type="value" class="anaam" placeholder="achternaam"></td>
+<!--
+                <td><input type="date" class="geboortedatum"> </td>
+                <td><input type="text" class="email" placeholder="e-mail"></td>
+                <td><input type="text" class="telefoonnr" placeholder="telefoonnummer"></td>
+                <td><button type="btnsend">verzenden</button></td>
+-->
+            </tr>        
+        </table>
+      
+        <script>
+        
+        function werknemerNaw(obj) {
+//    this.werknemerfunctie = obj.werknemerfunctie;
+//    this.werknemertitel = obj.werknemertitel;
+    this.vnaam = obj.vnaam;
+    this.anaam = obj.anaam;
+//    this.geboortedatum = obj.geboortedatum;
+//    this.email = obj.email;
+//    this.telefoonnr = obj.telefoonnr;   
+}
+    //verzenden d.m.v. enter
+    document.addEventListener('keypress', function(event) {
+          
+            if (event.keyCode === 13 || event.which === 13){
+                
+//    var werknemerfunctie = document.getElementById('werknemerfunctie').value;
+//    var werknemertitel = document.getElementById('werknemertitel').value;
+    var vnaam = document.getElementById('vnaam').value;
+    var anaam = document.getElementById('anaam').value;
+//    var geboortedatum = document.getElementById('geboortedatum').value;
+//    var email = document.getElementById('email').value;
+//    var telefoonnr = document.getElementById('telefoonnr').value;
+    var wndata = new werknemerNaw({
+//        werknemerfunctie: werknemerfunctie,
+//        werknemertitel: werknemertitel,
+        vnaam: vnaam,
+        anaam: anaam,
+//        geboortedatum: geboortedatum,
+//        email: email,
+//        telefoonnr: telefoonnr
+    });
+        
+    }
+    
+
+  console.log(JSON.stringify(wndata));
+});
+        
+        </script>
+        
+    </body>
+</html>
+    
