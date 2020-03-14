@@ -1,34 +1,34 @@
 // WERKNEMER CONTROLLER
 
 function werknemerNaw(obj) {
-    this.werknemerfunctie = obj.werknemerfunctie;
-    this.werknemertitel = obj.werknemertitel;
+//    this.werknemerfunctie = obj.werknemerfunctie;
+//    this.werknemertitel = obj.werknemertitel;
     this.vnaam = obj.vnaam;
     this.anaam = obj.anaam;
-    this.geboortedatum = obj.geboortedatum;
-    this.email = obj.email;
-    this.telefoonnr = obj.telefoonnr;   
-}
+//    this.geboortedatum = obj.geboortedatum;
+//    this.email = obj.email;
+//    this.telefoonnr = obj.telefoonnr;   
+//}
     //verzenden d.m.v. enter
-    document.addEventListener('keypress', function(event) {
+    document.addEventListener('keypress', function() {
           
             if (event.keyCode === 13 || event.which === 13){
                 
-    var werknemerfunctie = document.getElementById('werknemerfunctie').value;
-    var werknemertitel = document.getElementById('werknemertitel').value;
+//    var werknemerfunctie = document.getElementById('werknemerfunctie').value;
+//    var werknemertitel = document.getElementById('werknemertitel').value;
     var vnaam = document.getElementById('vnaam').value;
     var anaam = document.getElementById('anaam').value;
-    var geboortedatum = document.getElementById('geboortedatum').value;
-    var email = document.getElementById('email').value;
-    var telefoonnr = document.getElementById('telefoonnr').value;
+//    var geboortedatum = document.getElementById('geboortedatum').value;
+//    var email = document.getElementById('email').value;
+//    var telefoonnr = document.getElementById('telefoonnr').value;
     var wndata = new werknemerNaw({
-        werknemerfunctie: werknemerfunctie,
-        werknemertitel: werknemertitel,
+//        werknemerfunctie: werknemerfunctie,
+//        werknemertitel: werknemertitel,
         vnaam: vnaam,
         anaam: anaam,
-        geboortedatum: geboortedatum,
-        email: email,
-        telefoonnr: telefoonnr
+//        geboortedatum: geboortedatum,
+//        email: email,
+//        telefoonnr: telefoonnr
     });
         
     }
