@@ -8,6 +8,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+td{
+    background-color: #e1c7fa;
+}
+
+
 
 html{
     background-color: #fff;
@@ -104,10 +114,16 @@ h1{
     color: #fff;
 }
 
-#invulveldwerknemers {
-    
-}
+
 
 .tr__selectblad {
     
+}
+
+#invulveldwerknemers {
+    margin-left: 5%;
+}
+
+#titelWN {
+    margin-left: 5%;
 }
