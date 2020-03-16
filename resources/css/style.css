@@ -33,12 +33,7 @@ html{
 }
 
 header {
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/talent.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/talent.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+ 
 }
 
 .hero-text-box{
@@ -47,6 +42,13 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
+       background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/talent.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/talent.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 h1{
@@ -101,6 +103,24 @@ h1{
     list-style: none;
     margin-top: 55px;
 }
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+
 
 .main-nav li {
     display: inline-block;
@@ -128,3 +148,14 @@ h1{
     margin-left: 5%;
 }
 
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.middle {
+    
+}
