@@ -1,0 +1,88 @@
+ 
+ <!DOCTYPE html>
+ <html>
+    <head>
+                
+            <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+            <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+            <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+            
+        ADMIN MODUS
+    </head>
+    <body>
+          <h4 id='titel'>TOEVOEGEN WERKNEMER</h4 >
+        <div>
+  
+           
+  
+            <div>
+                <form>
+                        <label for="voornaam">Voornaam:</label>
+                        <input type="text" id="voornaam">
+                        
+                        <label for="achternaam">Achternaam:</label>
+                        <input type="text" id="achternaam">
+    
+                        <label for="email">E-mailadres:</label>
+                        <input type="text" id="email">
+    
+                        <label for="adres">Adres:</label>
+                        <input type="text" id="adres">
+    
+                        <label for="geboortedatum">Geboortedatum:</label>
+                        <input type="text" id="geboortedatum">
+    
+                        <label for="telefoonnummer">Telefoonnummer:</label>
+                        <input type="text" id="telefoonnummer">
+                   
+                   
+                    <input type="button" value="Voeg medewerker toe"  onclick="addMedewerkertoDB()">
+                </form>
+            </div>
+  
+          
+  
+          
+        </div>
+   
+        <script>
+           
+            
+  
+            function addMedewerkertoDB(){
+               
+                var vNaam = document.getElementById('voornaam').value;
+                var aNaam = document.getElementById('achternaam').value;
+                var eMail = document.getElementById('email').value;
+                var adres = document.getElementById('adres').value;
+                var geboortedatum = document.getElementById('geboortedatum').value;
+                var telefoonnummer = document.getElementById('telefoonnummer').value;
+                var persoon = {};
+                persoon.voornaam = vNaam;
+                persoon.achternaam = aNaam;
+                persoon.email = eMail;
+                persoon.adres = adres;
+                persoon.geboortedatum = geboortedatum;
+                persoon.telefoonnummer = telefoonnummer;
+  
+  
+                var abc = JSON.stringify(persoon);
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+           
+                }
+                xhr.open("POST","http://localhost:8082/post",true);
+                xhr.setRequestHeader("Content-type","application/json")
+                xhr.send(abc);
+            }
+  
+           
+  
+            
+        </script>
+    </body>
+ </html>
+  
+  
+ 
+ 
